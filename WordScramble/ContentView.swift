@@ -10,13 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
-            // we found the file in our bundle
-            if let fileContents = try?
-                String(contentsOf: fileURL) {
-                // we loaded the file into a string
-            }
-        }
+        let input = "a b c"
+        let letters = input.components(separatedBy: " ")
         
         return Text("Hello World")
     }
