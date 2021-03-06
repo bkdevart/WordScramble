@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA21D05425F41CD600D9BAC5 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA21D05325F41CD600D9BAC5 /* start.txt */; };
 		CA45934925F28FAD008A0A56 /* WordScrambleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45934825F28FAD008A0A56 /* WordScrambleApp.swift */; };
 		CA45934B25F28FAD008A0A56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45934A25F28FAD008A0A56 /* ContentView.swift */; };
 		CA45934D25F28FAE008A0A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA45934C25F28FAE008A0A56 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA21D05325F41CD600D9BAC5 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		CA45934525F28FAD008A0A56 /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA45934825F28FAD008A0A56 /* WordScrambleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleApp.swift; sourceTree = "<group>"; };
 		CA45934A25F28FAD008A0A56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				CA45934A25F28FAD008A0A56 /* ContentView.swift */,
 				CA45934C25F28FAE008A0A56 /* Assets.xcassets */,
 				CA45935125F28FAE008A0A56 /* Info.plist */,
+				CA21D05325F41CD600D9BAC5 /* start.txt */,
 				CA45934E25F28FAE008A0A56 /* Preview Content */,
 			);
 			path = WordScramble;
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA45935025F28FAE008A0A56 /* Preview Assets.xcassets in Resources */,
+				CA21D05425F41CD600D9BAC5 /* start.txt in Resources */,
 				CA45934D25F28FAE008A0A56 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +271,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordScramble/Preview Content\"";
 				DEVELOPMENT_TEAM = GN64R4AHYT;
@@ -279,6 +284,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bknox.dev.WordScramble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,6 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordScramble/Preview Content\"";
 				DEVELOPMENT_TEAM = GN64R4AHYT;
@@ -301,6 +308,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bknox.dev.WordScramble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
