@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var totalScore = 0
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -28,11 +30,20 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+                
+                Text("Score: \(totalScore)")
+                    .font(.largeTitle)
             }
             .navigationBarTitle(rootWord)
             .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
+            .toolbar {
+                Button("New Word") {
+                    startGame()
+                    // TODO empty list when starting new game?
+                }
             }
         }
     }
@@ -59,8 +70,14 @@ struct ContentView: View {
             return
         }
         
+        guard isSameWord(word: answer) else {
+            wordError(title: "Invalid word", message: "Cannot use the same word as given or one that is less than three letters")
+            return
+        }
+        
         usedWords.insert(answer, at: 0)
         newWord = ""
+        totalScore = getScore(words: usedWords)
     }
     
     func startGame() {
@@ -106,6 +123,26 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func isSameWord(word: String) -> Bool {
+        if isReal(word: word) && word != rootWord {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func getScore(words: [String]) -> Int {
+        // get count of total words?
+        let wordCount = words.count
+        var letterCount = 0
+        print(wordCount)
+        for word in words {
+            letterCount += word.count
+        }
+        
+        return letterCount
     }
 }
 
