@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var showingError = false
     
     @State private var totalScore = 0
+    @State private var offset = 0.0
     
     var body: some View {
         NavigationView {
@@ -25,14 +26,19 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
-                
-                List(usedWords, id: \.self) { word in
-                    HStack {
-                        Image(systemName: "\(word.count).circle")
-                        Text(word)
+                // Change project 5 (Word Scramble) so that words towards the bottom of the list slide in from the right as you scroll. Ideally at least the top 8-10 words should all be positioned normally, but after that they should be offset increasingly to the right.
+                GeometryReader { fullView in
+                    List(usedWords, id: \.self) { word in
+                        GeometryReader { geo in
+                            HStack {
+                                Image(systemName: "\(word.count).circle")
+                                Text(word)
+                            }
+                            .offset(x: pow(2, CGFloat(geo.frame(in: .global).minY) - fullView.size.height))
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("\(word), \(word.count) letters"))
+                        }
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibility(label: Text("\(word), \(word.count) letters"))
                 }
                 Text("Score: \(totalScore)")
                     .font(.largeTitle)
