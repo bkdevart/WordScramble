@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var showingError = false
     
     @State private var totalScore = 0
-    @State private var offset = 0.0
+//    @State private var color = Color(red: 0.0, green: 0.0, blue: 0.0)
     
     var body: some View {
         NavigationView {
@@ -26,12 +26,15 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
-                // Change project 5 (Word Scramble) so that words towards the bottom of the list slide in from the right as you scroll. Ideally at least the top 8-10 words should all be positioned normally, but after that they should be offset increasingly to the right.
+                // For a real challenge make the letter count images in project 5 change color as you scroll. For the best effect, you should create colors using the Color(red:green:blue:) initializer, feeding in values for whichever of red, green, and blue you want to modify. The values to input can be figured out using the row’s current position divided by maximum position, which should give you values in the range 0 to 1.
                 GeometryReader { fullView in
                     List(usedWords, id: \.self) { word in
                         GeometryReader { geo in
                             HStack {
                                 Image(systemName: "\(word.count).circle")
+                                    .foregroundColor(Color(red: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY))),
+                                                           green: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY))),
+                                                           blue: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY)))))
                                 Text(word)
                             }
                             .offset(x: pow(2, CGFloat(geo.frame(in: .global).minY) - fullView.size.height))
@@ -51,7 +54,6 @@ struct ContentView: View {
             .toolbar {
                 Button("New Word") {
                     startGame()
-                    // TODO empty list when starting new game?
                 }
             }
         }
