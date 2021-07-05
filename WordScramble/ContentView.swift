@@ -32,9 +32,9 @@ struct ContentView: View {
                         GeometryReader { geo in
                             HStack {
                                 Image(systemName: "\(word.count).circle")
-                                    .foregroundColor(Color(red: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY))),
-                                                           green: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY))),
-                                                           blue: Double((CGFloat.random(in: 0.0...1.0) * (fullView.size.height / geo.frame(in:                              .global).maxY)))))
+                                    .foregroundColor(Color(red: Double(0.3 * (fullView.size.height / geo.frame(in:                              .global).maxY)),
+                                                           green: Double(0.5 * (fullView.size.height / geo.frame(in:                              .global).maxY)),
+                                                           blue: Double(0.2 * (fullView.size.height / geo.frame(in:                              .global).maxY))))
                                 Text(word)
                             }
                             .offset(x: pow(2, CGFloat(geo.frame(in: .global).minY) - fullView.size.height))
